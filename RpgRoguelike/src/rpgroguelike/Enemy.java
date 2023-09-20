@@ -11,15 +11,15 @@ import java.util.Random;
  * @author asaraiva
  */
 public class Enemy {
-    
+
     private String name;
     private int totalHealth, actualHealth;
     private int damage, level;
     private Effect effect;
-    
+
     public Enemy() {
     }
-    
+
     public Enemy(String name, int totalHealth, int damage, int level, Effect effect) {
         this.name = name;
         this.totalHealth = totalHealth;
@@ -28,7 +28,7 @@ public class Enemy {
         this.damage = damage * level;
         this.effect = effect;
     }
-    
+
     public void AttackEnemy(Character character) {
         character.TakeDamage(this.damage);
         if (effect != null) {
@@ -39,14 +39,22 @@ public class Enemy {
             }
         }
     }
-    
+
     public void TakeDamage(int damage) {
         setActualHealth(getActualHealth() - damage);
         if (getActualHealth() <= 0) {
             DeathEnemy();
         }
     }
-    
+
+    public void ShowStats() {
+        if (effect != null) {
+            System.out.print("Name: " + getName() + " | Health: " + getActualHealth() + " | Damage: " + getDamage() + " | Effect: " + effect.getName());
+        } else {
+            System.out.print("Name: " + getName() + " | Health: " + getActualHealth() + " | Damage: " + getDamage() + " | Effect: No Effect");
+        }
+    }
+
     public void DeathEnemy() {
     }
 
@@ -119,5 +127,5 @@ public class Enemy {
     public void setLevel(int level) {
         this.level = level;
     }
-    
+
 }

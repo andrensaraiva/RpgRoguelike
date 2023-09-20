@@ -42,6 +42,9 @@ public class Character {
     public void ApplyEffect(){
         
     }
+        public void ShowStats() {
+      
+    }
     
     /**
      * @return the name

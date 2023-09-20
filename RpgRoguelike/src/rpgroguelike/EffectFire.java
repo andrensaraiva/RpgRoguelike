@@ -10,9 +10,18 @@ package rpgroguelike;
  */
 public class EffectFire extends Effect {
 
+    public EffectFire(String name, int power){
+        super(name,power);
+    }
+    
     @Override
     public void ApplyEffect(Character character) {
         character.TakeDamage(getPower());
+    }
+
+    @Override
+    public void ShowStats() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

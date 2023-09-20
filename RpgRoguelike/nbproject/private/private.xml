@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/andre/Documents/NetBeansProjects/RpgRoguelike/src/rpgroguelike/Character.java</file>
-            <file>file:/C:/Users/andre/Documents/NetBeansProjects/RpgRoguelike/src/rpgroguelike/RpgRoguelike.java</file>
-            <file>file:/C:/Users/andre/Documents/NetBeansProjects/RpgRoguelike/src/rpgroguelike/EffectIce.java</file>
-            <file>file:/C:/Users/andre/Documents/NetBeansProjects/RpgRoguelike/src/rpgroguelike/EffectFire.java</file>
-            <file>file:/C:/Users/andre/Documents/NetBeansProjects/RpgRoguelike/src/rpgroguelike/Effect.java</file>
-            <file>file:/C:/Users/andre/Documents/NetBeansProjects/RpgRoguelike/src/rpgroguelike/Enemy.java</file>
+            <file>file:/C:/Users/asaraiva/Desktop/Projetos/RpgRoguelike/RpgRoguelike/src/rpgroguelike/GameplayManager.java</file>
+            <file>file:/C:/Users/asaraiva/Desktop/Projetos/RpgRoguelike/RpgRoguelike/src/rpgroguelike/CardAttack.java</file>
+            <file>file:/C:/Users/asaraiva/Desktop/Projetos/RpgRoguelike/RpgRoguelike/src/rpgroguelike/CardDefense.java</file>
+            <file>file:/C:/Users/asaraiva/Desktop/Projetos/RpgRoguelike/RpgRoguelike/src/rpgroguelike/Card.java</file>
+            <file>file:/C:/Users/asaraiva/Desktop/Projetos/RpgRoguelike/RpgRoguelike/src/rpgroguelike/Effect.java</file>
+            <file>file:/C:/Users/asaraiva/Desktop/Projetos/RpgRoguelike/RpgRoguelike/src/rpgroguelike/EffectFire.java</file>
+            <file>file:/C:/Users/asaraiva/Desktop/Projetos/RpgRoguelike/RpgRoguelike/src/rpgroguelike/Enemy.java</file>
+            <file>file:/C:/Users/asaraiva/Desktop/Projetos/RpgRoguelike/RpgRoguelike/src/rpgroguelike/EffectIce.java</file>
+            <file>file:/C:/Users/asaraiva/Desktop/Projetos/RpgRoguelike/RpgRoguelike/src/rpgroguelike/Character.java</file>
         </group>
     </open-files>
 </project-private>

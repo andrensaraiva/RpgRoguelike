@@ -20,7 +20,7 @@ public abstract class  Effect {
     }
     
     public abstract void ApplyEffect(Character character);
-
+    public abstract void ShowStats();
     /**
      * @return the name
      */
