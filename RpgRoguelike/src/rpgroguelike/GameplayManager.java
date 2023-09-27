@@ -5,6 +5,7 @@
 package rpgroguelike;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -12,6 +13,8 @@ import java.util.ArrayList;
  */
 public class GameplayManager {
 
+    Scanner ler = new Scanner(System.in);
+    private int andarAtual;
     private final ArrayList<Enemy> enemiesFloor01;
     private final ArrayList<Enemy> enemiesFloor02;
     private final ArrayList<Enemy> enemiesFloor03;
@@ -22,6 +25,8 @@ public class GameplayManager {
     private final ArrayList<Effect> effects;
 
     public GameplayManager() {
+        andarAtual = 0;
+        
         enemiesFloor01 = new ArrayList();
         enemiesFloor02 = new ArrayList();
         enemiesFloor03 = new ArrayList();
@@ -103,7 +108,27 @@ public class GameplayManager {
         System.out.println("Bem vindo ao ROGUELIKE JAVA");
         System.out.println("Aqui estão seus status");
         character.ShowStats();
+        System.out.println("Você está no andar "+ getAndarAtual()+ "da torre JAVA, escolha uma opção abaixo: ");
+        System.out.println("1 - Batalhar contra um Inimigo");
+        System.out.println("2 - Subir de andar"); 
+        System.out.println("3 - Ver Status"); 
+        String escolha = ler.nextLine();
+        switch(escolha){
+            case "1":
+                Batalhar(character);
+                break;
+            case "2":
+                SubirAndar();
+                break;
+            case "3":
+                character.ShowStats();
+                break;
+        }
     }
+    public void Batalhar(Character character){
+    
+    }
+    public void SubirAndar(){}
 
     /**
      * @return the enemiesFloor01
@@ -145,6 +170,20 @@ public class GameplayManager {
      */
     public ArrayList<Effect> getEffects() {
         return effects;
+    }
+
+    /**
+     * @return the andarAtual
+     */
+    public int getAndarAtual() {
+        return andarAtual;
+    }
+
+    /**
+     * @param andarAtual the andarAtual to set
+     */
+    public void setAndarAtual(int andarAtual) {
+        this.andarAtual = andarAtual;
     }
 
 }
