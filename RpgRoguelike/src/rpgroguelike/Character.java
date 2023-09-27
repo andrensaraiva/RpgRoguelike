@@ -19,11 +19,11 @@ public class Character {
     
     public Character(){}
     
-    public Character(String name, int totalMana, int totalHealth, ArrayList<Card> deck){
+    public Character(String name, int totalMana, int totalHealth){
         this.name = name;
         this.totalHealth = totalHealth;
         this.totalMana = totalMana;
-        this.deck = deck;
+        this.deck = new ArrayList<>();
         this.actualHealth = totalHealth;
         this.actualMana = totalMana;
         this.onEffect = new ArrayList<>();
@@ -43,7 +43,16 @@ public class Character {
         
     }
         public void ShowStats() {
-      
+      System.out.print("Seu nome é: " + getName() + ", você possui " + getActualHealth()+ " de VIDA e " + getActualMana() + " de MANA.");
+            for (int i = 0; i < getDeck().size(); i++) {
+                System.out.print("\n Carta "+ (i+1)+": " + deck.get(i).getName()+ ", mana: " + deck.get(i).getMana() + ", poder: " + 
+                        deck.get(i).getPower() + ", efeito: ");        
+                if(deck.get(i).getEffect() != null){
+                        System.out.print(deck.get(i).getEffect().getName());
+                }else{
+                    System.out.print("Não Possui");
+                }
+            }
     }
     
     /**

@@ -17,11 +17,11 @@ public class RpgRoguelike {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-         ArrayList<Enemy> inimigos = new ArrayList();
+        GameplayManager gm = new GameplayManager();
+        Character player = new Character("Carlus", 5, 10);
+        gm.SeedGame(player);
+        gm.IniciarGame(player);
         
-    }
-    public static void SeedEnemys(){
         
-    }
-    
+    }  
 }

@@ -97,6 +97,12 @@ public class GameplayManager {
         character.getDeck().add(cD1);
         character.getDeck().add(cD1);
         character.getDeck().add(cA2);
+    
+    }
+    public void IniciarGame(Character character){
+        System.out.println("Bem vindo ao ROGUELIKE JAVA");
+        System.out.println("Aqui estão seus status");
+        character.ShowStats();
     }
 
     /**
