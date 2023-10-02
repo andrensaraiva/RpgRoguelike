@@ -21,7 +21,7 @@ public class RpgRoguelike {
         Character player = new Character("Carlus", 5, 10);
         gm.SeedGame(player);
         gm.IniciarGame(player);
-        
+        gm.LoopGame(player);
         
     }  
 }

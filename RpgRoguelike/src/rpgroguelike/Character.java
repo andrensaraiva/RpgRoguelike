@@ -29,6 +29,12 @@ public class Character {
         this.onEffect = new ArrayList<>();
     }
 
+    public void ShowDeck(){
+        for (int i = 0; i < deck.size(); i++) {
+               System.out.println("ID: " + i + " - ");
+               deck.get(i).ShowStats();
+        }
+    }
     public void UseCard(int selectedCard, Enemy enemy){
         deck.get(selectedCard).UseCard(enemy);
     }

@@ -5,6 +5,7 @@
 package rpgroguelike;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -26,7 +27,7 @@ public class GameplayManager {
 
     public GameplayManager() {
         andarAtual = 0;
-        
+
         enemiesFloor01 = new ArrayList();
         enemiesFloor02 = new ArrayList();
         enemiesFloor03 = new ArrayList();
@@ -96,39 +97,165 @@ public class GameplayManager {
         cards.add(cD3);
         cards.add(cD4);
         cards.add(cD5);
-        
+
         character.getDeck().add(cA1);
         character.getDeck().add(cA1);
         character.getDeck().add(cD1);
         character.getDeck().add(cD1);
         character.getDeck().add(cA2);
-    
+
     }
-    public void IniciarGame(Character character){
+
+    public void IniciarGame(Character character) {
+
         System.out.println("Bem vindo ao ROGUELIKE JAVA");
         System.out.println("Aqui estão seus status");
         character.ShowStats();
-        System.out.println("Você está no andar "+ getAndarAtual()+ "da torre JAVA, escolha uma opção abaixo: ");
+
+        System.out.println("Você está no andar " + getAndarAtual() + " da torre JAVA, escolha uma opção abaixo: ");
         System.out.println("1 - Batalhar contra um Inimigo");
-        System.out.println("2 - Subir de andar"); 
-        System.out.println("3 - Ver Status"); 
+        System.out.println("2 - Subir de andar");
+        System.out.println("3 - Ver Status");
         String escolha = ler.nextLine();
-        switch(escolha){
+        switch (escolha) {
             case "1":
                 Batalhar(character);
                 break;
             case "2":
-                SubirAndar();
+                SubirAndar(character);
                 break;
             case "3":
                 character.ShowStats();
                 break;
         }
+        while (escolha.equals("3")) {
+            System.out.println("Você está no andar " + getAndarAtual() + " da torre JAVA, escolha uma opção abaixo: ");
+            System.out.println("1 - Batalhar contra um Inimigo");
+            System.out.println("2 - Subir de andar");
+            System.out.println("3 - Ver Status");
+            escolha = ler.nextLine();
+            switch (escolha) {
+                case "1":
+                    Batalhar(character);
+                    break;
+                case "2":
+                    SubirAndar(character);
+                    break;
+                case "3":
+                    character.ShowStats();
+                    break;
+            }
+
+        }
     }
-    public void Batalhar(Character character){
-    
+
+    public void LoopGame(Character character) {
+
+        System.out.println("Você está no andar " + getAndarAtual() + " da torre JAVA, escolha uma opção abaixo: ");
+        System.out.println("1 - Batalhar contra um Inimigo");
+        System.out.println("2 - Subir de andar");
+        System.out.println("3 - Ver Status");
+        String escolha = ler.nextLine();
+        switch (escolha) {
+            case "1":
+                Batalhar(character);
+                break;
+            case "2":
+                SubirAndar(character);
+                break;
+            case "3":
+                character.ShowStats();
+                break;
+        }
+        while (escolha.equals("3")) {
+            System.out.println("Você está no andar " + getAndarAtual() + " da torre JAVA, escolha uma opção abaixo: ");
+            System.out.println("1 - Batalhar contra um Inimigo");
+            System.out.println("2 - Subir de andar");
+            System.out.println("3 - Ver Status");
+            escolha = ler.nextLine();
+            switch (escolha) {
+                case "1":
+                    Batalhar(character);
+                    break;
+                case "2":
+                    SubirAndar(character);
+                    break;
+                case "3":
+                    character.ShowStats();
+                    break;
+            }
+
+        }
     }
-    public void SubirAndar(){}
+
+    public void Batalhar(Character character) {
+        Enemy battleEnemy = new Enemy();
+        Random rnd = new Random();
+        int enemy = 0;
+        switch (getAndarAtual()) {
+            case 0:
+                rnd.nextInt(0, enemiesFloor01.size());
+                battleEnemy = enemiesFloor01.get(enemy);
+                break;
+            case 1:
+                rnd = new Random();
+                enemy = rnd.nextInt(0, enemiesFloor02.size());
+                battleEnemy = enemiesFloor02.get(enemy);
+                break;
+            case 2:
+                rnd = new Random();
+                enemy = rnd.nextInt(0, enemiesFloor03.size());
+                battleEnemy = enemiesFloor03.get(enemy);
+                break;
+            case 3:
+                rnd = new Random();
+                enemy = rnd.nextInt(0, enemiesFloorBoss.size());
+                battleEnemy = enemiesFloorBoss.get(enemy);
+                break;
+        }
+        while (character.getActualHealth() != 0 && battleEnemy.getActualHealth() != 0) {
+            PlayerRound(character, battleEnemy);
+        }
+        System.out.print("Voce venceu a batalha");
+
+    }
+
+    public void PlayerRound(Character character, Enemy enemy) {
+        String opcao = "";
+        while (opcao != "2") {
+            System.out.println("Voce está batalhando contra: ");
+            enemy.ShowStats();
+            System.out.println("O que você deseja fazer? ");
+            System.out.println("1 - Utilizar Carta");
+            System.out.println("2 - Passar Turno");
+            opcao = ler.nextLine();
+            switch (opcao) {
+                case "1":
+                    character.ShowDeck();
+                    System.out.println("Selecione a carta que quer usar pelo ID");
+                    int card = ler.nextInt();
+                    if (character.getActualMana() >= character.getDeck().get(card).getMana()) {
+                        character.UseCard(card, enemy);
+                    } else {
+                        System.out.println("Você não possui MANA");
+                    }
+                    break;
+                case "2":
+
+                    break;
+                default:
+                    System.out.println("Escolha uma opção valida");
+                    break;
+            }
+        }
+
+    }
+
+    public void SubirAndar(Character character) {
+        System.err.println("Voce subiu o andar do JAVA, tem certeza que consegue se manter aqui?");
+        setAndarAtual(getAndarAtual() + 1);
+        LoopGame(character);
+    }
 
     /**
      * @return the enemiesFloor01

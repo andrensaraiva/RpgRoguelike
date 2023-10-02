@@ -54,6 +54,9 @@ public class Enemy {
             System.out.print("Name: " + getName() + " | Health: " + getActualHealth() + " | Damage: " + getDamage() + " | Effect: No Effect");
         }
     }
+    public void BackStats(){
+        
+    }
 
     public void DeathEnemy() {
     }

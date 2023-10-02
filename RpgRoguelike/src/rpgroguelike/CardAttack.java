@@ -16,12 +16,14 @@ public class CardAttack extends Card{
     
     @Override
     public void UseCard(Enemy enemy) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       enemy.TakeDamage(getPower());
+         System.out.println("Você causou " + getPower() + " ao inimigo. HP atual inimigo: " + enemy.getActualHealth());
     }
 
     @Override
     public void ShowStats() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("Name: " + getName() + " | Power: " + getPower() + " | Mana: " + getMana() + " | + Effect: ");
+        System.out.println("Essa carta APLICA dano ao inimigo");
     }
     
 }

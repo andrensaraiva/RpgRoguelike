@@ -12,7 +12,7 @@ public abstract class Card {
     private String name;
     private int mana;
     private int power;
-    private Effect effect;
+    Effect effect;
     private boolean canUse;
     
     public Card(){}
